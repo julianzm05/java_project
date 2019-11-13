@@ -30,5 +30,4 @@ public class DirectorEmpleado implements Empleados{
 	public String getInforme() {
 		return "Informe creado por el Director: "+ informeNuevo.getInforme();
 	}
-
 }
