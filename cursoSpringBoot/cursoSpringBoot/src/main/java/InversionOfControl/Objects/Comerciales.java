@@ -1,11 +1,25 @@
 package InversionOfControl.Objects;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import interfaces.CreacionInformes;
 import interfaces.EmpleadosAnnotations;
 
-@Component("comercial")
+@Component
 public class Comerciales implements EmpleadosAnnotations{
+	/*
+	 * Se puede usar en métodos setters, atributos y en métodos normales
+	 */
+	@Autowired
+	private CreacionInformes nuevoInforme;
+	
+	
+	/*@Autowired
+	public Comerciales(CreacionInformes nuevoInforme) {
+		super();
+		this.nuevoInforme = nuevoInforme;
+	}*/
 
 	@Override
 	public String getTareas() {
@@ -16,7 +30,7 @@ public class Comerciales implements EmpleadosAnnotations{
 	@Override
 	public String getInforme() {
 		// TODO Auto-generated method stub
-		return "Informe Generado por el comercial";
+		return nuevoInforme.getInformeFinanciero();
 	}
 
 }
